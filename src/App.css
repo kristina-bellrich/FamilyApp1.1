@@ -1,38 +1,714 @@
-.App {
-  text-align: center;
+html,
+body {
+    font-family: 'Source Code Pro', monospace;
+    overflow-x: hidden;
+    margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* LANDING */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.loaderContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-bottom: '50px'
+}
+.landingContainer1 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .landingContainer1.loaded {
+    opacity: 1;
+    transform: translateY(0);
   }
-  to {
-    transform: rotate(360deg);
-  }
+.loaderText{
+    color: #a28999;
+     margin: auto;
+     font-family: 'Source Code Pro', monospace;
+font-weight: 800;
+}
+.loading {
+    text-align: center;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    color: #41403f;
+    font-family: 'Source Code Pro', monospace;
+}
+.extraTextLoading{
+    width: 500px;
+    margin: 60px auto;
+    font-family: 'Source Code Pro', monospace;
+}
+.navBar {
+    background-color: #9d8d84;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+.link {
+    text-decoration: none;
+}
+nav {
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Source Code Pro', monospace;
+    color: #dfd8d5;   text-decoration: none;
+
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 30px;
+}
+.landingContainer {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.landingContainer1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    margin: 30px auto;
+}
+.headerCont {
+    flex: 6;
+}
+.header {
+    font-size: 50px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: #9d8d84;
+    width: 300px;
+    margin: 40px;
+}
+.header1 {
+    text-align: center;
+    margin: 80px;
+    color: #756961;
+    font-family: 'Source Code Pro', monospace;
+}
+.header2 {
+    text-align: center;
+    font-size: 20px;
+    color: #9d8d84;
+    margin: 10px;
+    font-family: 'Source Code Pro', monospace;
+}
+.marginLeft {
+    margin-left: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-column {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.feature {
+    width: 300px;
+}
+.feature1 {
+    width: 300px;
+    font-family: 'Source Code Pro', monospace;
+}
+.imgSection {
+    width: 300px;
+}
+.block-title {
+    padding: 20px;
+    text-align: center;
+    color: #fbfbfb;
+    background-color: #bed5db;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(140, 167, 239, 0.1);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border: 1px solid rgba(200, 168, 168, 0.77);
+}
+.arrow-icon {
+    width: 300px;
+    clip-path: polygon(
+        0% 20%,
+        60% 20%,
+        60% 0%,
+        100% 50%,
+        60% 100%,
+        60% 80%,
+        0% 80%
+    );
+}
+.imgHeader {
+    width: 800px;
+}
+.useContainer {
+    width: 95%;
+    margin: auto;
+}
+
+/* RECIPE API*/
+
+.eachRecipe {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 50px;
+}
+.eachOfAllRecipes {
+    background-color: #dfebe9;
+    border-radius: 20px;
+    width: 400px;
+    margin: 20px auto;
+}
+.imgEachRec {
+    margin: auto;
+}
+.imgApi {
+    border-radius: 20px;
+    box-shadow: 9px 5px 15px 6px rgba(227, 179, 230, 0.849);
+}
+.eachRecipeApi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px auto 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+}
+
+/* MY RECIPE */
+.allRecipeContainer {
+    margin-top: 80px;
+}
+.headerRecipesContainer {
+    font-size: 40px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: #9d8d84;
+    width: 600px;
+    margin: auto;
+}
+.recipeContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.imgRecipe {
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.nameOfRecipe {
+    font-size: 30px;
+    color: #53514f;
+}
+.openRecipe {
+    color: #41403f;
+    text-decoration: none;
+}
+.openRecipe:hover {
+    color: #ffffff;
+}
+.eachOfAllRecipes {
+    box-shadow: 10px 10px 10px 10px rgb(101, 101, 100);
+}
+
+/* Pagination */
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 5px;
+    font-size: 15px;
+    gap: 5px;
+    padding: 10px;
+}
+
+.pagination .page-num {
+    padding: 8px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #929292;
+}
+.pagination .page-num:hover {
+    background-color: #404141;
+}
+.pagination .active {
+    background-color: #404141;
+    padding: 5px;
+    color: rgb(255, 255, 255);
+}
+.pagination .btn {
+    color: #404141 !important;
+}
+.pag {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    text-align: center;
+}
+.p1 {
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* SIDEBAR */
+
+.headerOfSiderBar {
+    font-weight: bold;
+    padding: 9px;
+    font-size: 17px;
+    text-align: center;
+}
+.openRecipe{
+padding: 5px;
+}
+.openRecipe:hover{
+    color: #a88494;
+
+}
+.findInput {
+    width: 220px;
+    justify-content: space-around;
+}
+.close {
+    z-index: 4;
+    opacity: 1;
+    min-width: 350px !important;
+}
+.open {
+    background-color: #53514f;
+}
+.loginCollapsed {
+    z-index: -1;
+}
+
+.find {
+    font-size: 15px;
+    color: #41403f;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.animation {
+    width: 100%;
+    height: 300px;
+}
+
+/* TODO */
+
+.addedBtn {
+    margin-top: 8px;
+    border: none;
+    background-color: rgba(248, 248, 248, 0);
+}
+.inputApi {
+    padding: 6px;
+    font-size: 15px;
+    width: 80%;
+}
+.todoList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 80px;
+}
+.contWithEachEl {
+    padding-left: 5px;
+    padding-top: 15px;
+    display: flex;
+    background-color: #c493a0cf;
+    width: 300px;
+    margin: 10px auto;
+}
+.titleTodo {
+    color: #fafafa;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    margin-right: 5px;
+    flex: 1;
+}
+.mr-top{
+margin-top: -80px;
+}
+.todo {
+    font-size: 40px;
+    color: rgb(58, 57, 57);
+}
+.done {
+    color: red;
+    text-decoration: line-through;
+}
+.iconTodo {
+    margin: auto;
+    width: 500px;
+}
+
+/* DATING */
+.allDateContainer {
+    margin-top: 80px;
+}
+.randomImg {
+    width: 500px;
+    border-radius: 20px;
+}
+.flexDatingContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100vw;
+}
+.btnFilterContainer {
+    display: flex;
+    width: 100vw;
+    margin-left: 3px;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.btnFilter {
+    background-color: #9c9591;
+    color: #ffffff;
+    margin-right: 5px;
+    padding: 5px;
+    width: 120px;
+    border: none;
+    box-shadow: 3px 1px 1px 1px rgb(101, 101, 100);
+}
+.btnFilter:hover {
+    background-color: #b89aad;
+    color: #ffffff;
+}
+.headerRandom {
+    font-size: 50px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    color: #9d8d84;
+    width: 600px;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.btnGenerate {
+    background-color: #dfebe9;
+    border: none;
+    padding: 20px;
+    margin: 25px;
+    color: #696866;
+    font-size: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 4px 10px 10px rgb(101, 101, 100);
+}
+.btnGenerate:hover {
+    background-color: #f7eaf3;
+    font-size: 25px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: center;
+    margin: 10px auto;
+    color: #696866;
+    font-family: 'Source Code Pro', monospace;
+}
+.titleInput {
+    font-family: 'Source Code Pro', monospace;
+    padding: 5px;
+}
+.typeOfDate {
+    width: 500px;
+    padding: 5px;
+    color: #696866;
+}
+.dateTypeImg {
+    border-radius: 50%;
+}
+.datingIdea {
+    font-size: 40px;
+    color: #696866;
+    font-weight: 500;
+    text-align: center;
+}
+.openYoursIdeas {
+    padding: 10px;
+    color: #41403f;
+    font-family: 'Source Code Pro', monospace;
+}
+.openYoursIdeas:hover {
+    padding: 10px;
+    background-color: #b5b1b1;
+}
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+}
+.collapsed {
+    display: none;
+}
+.contWithAllDating {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: center;
+}
+.addDate {
+    background-color: #6e6d6d;
+    color: #b0a8a4;
+    font-size: 20px;
+    padding: 5px;
+}
+.addDate:hover {
+    background-color: #a88494;
+    color: #ffffff;
+    font-size: 20px;
+}
+.formContent {
+    display: flex;
+    width: 300px;
+    margin: 20px auto;
+    justify-content: center;
+    flex-direction: column;
+}
+.contWithEachDate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Source Code Pro', monospace;
+    padding: 10px;
+    margin-right: 15px;
+    width: 300px;
+    border-radius: 54px;
+    background: #ffffff;
+    box-shadow:
+        28px 28px 55px #a28999,
+        -28px -28px 55px #ffffff;
+}
+.title {
+    width: 280px;
+}
+.addBtn {
+    width: 200px;
+    background: rgba(218, 127, 127, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    margin: 5px auto;
+}
+
+
+/* BUDGET */
+.budgetContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 80px auto;
+    text-align: center;
+    width: 800px;
+
+}
+.eachCont{
+     background-color: #929292;
+}
+
+
+
+
+
+/* LOGIN */
+.mr-left {
+    margin-left: 80px;
+}
+.loginContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 80px ;
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+}
+.btnAndText {
+    width: 30%;
+    height: 100%;
+    margin-top: 20px;
+}
+.textLogin {
+    font-size: 20px;
+}
+.loginBtn {
+    background-color: #a88494;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    width: 100px;
+    margin: auto;
+    color: #eeebe9;
+    border-radius: 10px;
+}
+.loginBtn:hover {
+    background-color: #e85660;
+    color: #fcfcfc;
+    border-radius: 10px;
+}
+
+.imgLoading {
+    width: 30%;
+    height: 100%;
+}
+.imgLoad {
+    width: 200px;
+}
+
+@media all and (max-width: 1000px) {
+    .imgHeader {
+        width: 450px;
+    }
+    .header {
+        font-size: 40px;
+        width: 200px;
+    }
+    .loginContainer {
+        width: 600px;
+        margin: 80px auto;
+    }
+
+    .btnFilterContainer {
+        justify-content: center;
+        flex-wrap: wrap;
+        align-self: center;
+    }
+    .btnFilter {
+        margin-top: 3px;
+    }
+}
+
+@media all and (max-width: 850px) {
+    .imgHeader {
+        width: 300px;
+    }
+    .header {
+        font-size: 30px;
+        width: 200px;
+    }
+    .imgSection {
+        width: 200px;
+    }
+    .extraTextLoading{
+        width: 300px;
+
+    }
+    .feature1 {
+        width: 200px;
+        font-size: 15px;
+    }
+    .eachOfAllRecipes {
+        width: 300px;
+    }
+    .btnFilterContainer {
+        justify-content: center;
+        flex-wrap: wrap;
+        align-self: center;
+    }
+    .btnFilter {
+        margin-top: 3px;
+    }
+    .loginContainer {
+        width: 500px;
+        margin: 80px auto;
+    }
+    .imgLoad {
+        width: 150px;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .landingContainer1 {
+        display: flex;
+        flex-direction: column;
+    }
+    .imgSection {
+        width: 100px;
+    }
+    .features {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        margin: 0px;
+    }
+    .feature {
+        width: 130px;
+    }
+    .header2 {
+        font-size: 15px;
+    }
+    .feature1 {
+        width: 130px;
+    }
+    .headerRecipesContainer {
+        font-size: 30px;
+        width: 300px;
+    }
+    .nameOfRecipe {
+        font-size: 15px;
+    }
+    .headerRandom {
+        font-size: 30px;
+        width: 300px;
+    }
+    .datingIdea {
+        font-size: 30px;
+    }
+    .containerImgAndIdea {
+        width: 400px;
+        margin: auto;
+    }
+    .randomImg {
+        width: 400px;
+    }
+    .iconTodo {
+        width: 450px;
+        margin: auto;
+    }
+    .form {
+        width: 300px;
+    }
+    .typeOfDate {
+        width: 300px;
+    }
+    .loginContainer {
+        margin-right: 25px;
+        width: 350px;
+        margin: 80px auto;
+    }
+    .imgLoad {
+        width: 110px;
+    }
+    .textLogin{
+        font-size: 15px;
+    }
 }
