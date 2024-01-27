@@ -8,10 +8,9 @@ function Home() {
     useEffect(() => {
         setLoaded(false);
         AOS.init({
-            duration: 800,
+            duration: 600,
             once: true,
-          });
-
+        });
     }, []);
 
     return (
@@ -35,10 +34,16 @@ function Home() {
                 </section>
             )}
 
-            <h2 className='header1'  data-aos='fade-up'  data-aos-delay='1000'> YOUR FAMILY HELPER </h2>
+            <h2 className='header1'>
+                YOUR FAMILY HELPER
+            </h2>
 
-            <section className='features'  >
-                <div className='feature' data-aos='fade-up' data-aos-delay='2000'>
+            <section className='features'>
+                <div
+                    className='feature'
+                    data-aos='fade-up'
+                    data-aos-delay='500'
+                >
                     <img
                         className='imgSection'
                         src='https://cdn.glitch.global/225ba953-fb5b-4a9f-8282-59305d3e0afc/20892169_Sandy_Ppl-23_Single-02.jpg?v=1705426952146'
@@ -49,7 +54,11 @@ function Home() {
                     </h2>
                 </div>
 
-                <div className='feature' data-aos='fade-up' data-aos-delay='2500'>
+                <div
+                    className='feature'
+                    data-aos='fade-up'
+                    data-aos-delay='1000'
+                >
                     <img
                         className='imgSection'
                         src='https://cdn.glitch.global/225ba953-fb5b-4a9f-8282-59305d3e0afc/14261146_2003.i203.008.virtual%20relationships%20online%20dating%20cartoon.jpg?v=1705426956259'
@@ -60,34 +69,43 @@ function Home() {
                     </h2>
                 </div>
 
-                <div className='feature'  data-aos='fade-up'  data-aos-delay='3000'>
+                <div
+                    className='feature'
+                    data-aos='fade-up'
+                    data-aos-delay='1500'
+                >
                     <img
                         className='imgSection'
                         src='https://cdn.glitch.global/225ba953-fb5b-4a9f-8282-59305d3e0afc/12085876_20944361.jpg?v=1705426948089'
                         alt='Совместные дела'
                     />
                     <h2 className='header2'>
-                        Organize your joint tasks and activities
+                        Organize your joint tasks and track your expenses
                     </h2>
                 </div>
             </section>
 
-
-
-
             <div className='useContainer'>
-                <h2 className='header1'  data-aos='fade-up'>HOW YOU CAN USE IT</h2>
+                <h2 className='header1'>
+                    HOW YOU CAN USE IT
+                </h2>
 
                 <section className='features'>
-                    <h3 className='block-title feature1' data-aos='fade-up' data-aos-delay='500'>
+                    <h3
+                        className='block-title feature1'
+                    >
                         Log into your account
                     </h3>
-                    <img  data-aos='fade-up' data-aos-delay='1500'
+                    <img
                         src='https://cdn.glitch.global/225ba953-fb5b-4a9f-8282-59305d3e0afc/13575823_35.jpg?v=1705425746458'
                         alt='Arrow Icon'
                         className='feature1 arrow-icon'
                     />
-                    <h3 className='block-title  feature1' data-aos='fade-up'  data-aos-delay='2500'>Save your ideas</h3>
+                    <h3
+                        className='block-title  feature1'
+                    >
+                        Save your ideas
+                    </h3>
                 </section>
             </div>
         </div>

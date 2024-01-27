@@ -7,27 +7,29 @@ body {
 
 /* LANDING */
 
-.loaderContainer{
+.loaderContainer {
     height: 100vh;
     display: flex;
     justify-content: center;
-    margin-bottom: '50px'
+    margin-bottom: '50px';
 }
 .landingContainer1 {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
-  }
+    transition:
+        opacity 0.8s ease-in-out,
+        transform 0.8s ease-in-out;
+}
 
-  .landingContainer1.loaded {
+.landingContainer1.loaded {
     opacity: 1;
     transform: translateY(0);
-  }
-.loaderText{
+}
+.loaderText {
     color: #a28999;
-     margin: auto;
-     font-family: 'Source Code Pro', monospace;
-font-weight: 800;
+    margin: auto;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 800;
 }
 .loading {
     text-align: center;
@@ -37,7 +39,7 @@ font-weight: 800;
     color: #41403f;
     font-family: 'Source Code Pro', monospace;
 }
-.extraTextLoading{
+.extraTextLoading {
     width: 500px;
     margin: 60px auto;
     font-family: 'Source Code Pro', monospace;
@@ -55,8 +57,8 @@ nav {
     text-decoration: none;
     font-size: 17px;
     font-family: 'Source Code Pro', monospace;
-    color: #dfd8d5;   text-decoration: none;
-
+    color: #dfd8d5;
+    text-decoration: none;
 }
 
 .flex-row {
@@ -203,7 +205,7 @@ nav {
     font-size: 40px;
     font-family: 'Source Code Pro', monospace;
     font-weight: 700;
-    color: #9d8d84;
+    color: #81766f;
     width: 600px;
     margin: auto;
 }
@@ -280,12 +282,11 @@ nav {
     font-size: 17px;
     text-align: center;
 }
-.openRecipe{
-padding: 5px;
+.openRecipe {
+    padding: 5px;
 }
-.openRecipe:hover{
+.openRecipe:hover {
     color: #a88494;
-
 }
 .findInput {
     width: 220px;
@@ -349,8 +350,8 @@ padding: 5px;
     margin-right: 5px;
     flex: 1;
 }
-.mr-top{
-margin-top: -80px;
+.mr-top {
+    margin-top: -80px;
 }
 .todo {
     font-size: 40px;
@@ -519,35 +520,73 @@ margin-top: -80px;
     margin: 5px auto;
 }
 
-
 /* BUDGET */
-.budgetContainer{
+.expensesContainer{
+    margin-top: 100px;
+    text-align: center;
+}
+.budgetContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 80px auto;
+    margin: auto;
     text-align: center;
-    width: 800px;
-
+    width: 500px;
 }
-.eachCont{
-     background-color: #929292;
+.containerWithExpenses {
+    margin-top: 20px;
 }
-
-
-
-
+.eachCont {
+    background-color: #929292;
+}
+.listOfExpenses {
+    list-style: none;
+}
+.contWithEachExpense {
+    display: flex;
+    margin: 5px auto;
+    width: 500px;
+}
+.expenses {
+    flex: 1;
+    font-size: 20px;
+    color: #6a6072;
+    font-family: 'Source Code Pro', monospace;
+}
+.headerExpenses {
+    font-size: 40px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+    color: #9d8d84;
+}
+.inputExpenses {
+    color: #9d8d84;
+}
+.total {
+    color: #9b849d;
+    font-family: 'Source Code Pro', monospace;
+    margin-bottom: 30px;
+}
+.appDescription{
+    color: #9b849d;
+    font-size: 40px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 600;
+}
 
 /* LOGIN */
 .mr-left {
     margin-left: 80px;
+
 }
+
 .loginContainer {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
-    margin: 80px ;
+    margin: 80px auto;
+   justify-content: center;
     text-align: center;
     font-family: 'Source Code Pro', monospace;
 }
@@ -617,9 +656,8 @@ margin-top: -80px;
     .imgSection {
         width: 200px;
     }
-    .extraTextLoading{
+    .extraTextLoading {
         width: 300px;
-
     }
     .feature1 {
         width: 200px;
@@ -708,7 +746,40 @@ margin-top: -80px;
     .imgLoad {
         width: 110px;
     }
-    .textLogin{
+    .textLogin {
         font-size: 15px;
     }
+    .budgetContainer {
+        width: 360px;
+    }
+    .containerWithExpenses {
+        margin-top: 20px;
+    }
+.btnFilter{
+    width: 80px;
+}
+    .contWithEachExpense {
+        display: flex;
+        margin: 5px auto;
+        width: 360px;
+    }
+    .expenses {
+        flex: 1;
+        font-size: 15px;
+        color: #6a6072;
+        font-family: 'Source Code Pro', monospace;
+    }
+    .headerExpenses {
+        font-size: 36px;
+    }
+    .inputExpenses {
+        height: 40px;
+        width: 360px;
+        font-size: 20px;
+    }
+    .appDescription{
+        font-size: 30px;
+    }
+
+
 }

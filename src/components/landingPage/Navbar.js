@@ -1,5 +1,5 @@
 import React from 'react';
-import {Navbar, Nav} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import logo from '../../logo.png';
 import Swal from 'sweetalert2';
@@ -48,21 +48,34 @@ const AppNavbar = () => {
                     >
                         Recipes
                     </Nav.Link>
+
+                    <NavDropdown title='Ideas' id='basic-nav-dropdown'>
+                        <Nav.Link
+                            style={{color: '#81766f'}}
+                            as={Link}
+                            className='nav'
+                            to='/dating'
+                        >
+                            Dating
+                        </Nav.Link>
+                        <Nav.Link
+                            style={{color: '#81766f'}}
+                            as={Link}
+                            className='nav'
+                            to='/todo'
+                        >
+                            Todo
+                        </Nav.Link>
+                        
+                    </NavDropdown>
+
                     <Nav.Link
                         style={{color: '#dfd8d5'}}
                         as={Link}
                         className='nav'
-                        to='/dating'
+                        to='/expenses'
                     >
-                        Dating
-                    </Nav.Link>
-                    <Nav.Link
-                        style={{color: '#dfd8d5'}}
-                        as={Link}
-                        className='nav'
-                        to='/todo'
-                    >
-                        Todo
+                        Expenses
                     </Nav.Link>
                 </Nav>
                 <Nav>

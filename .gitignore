@@ -3,3 +3,6 @@
 /build
 public/netlify.toml
 .DS_Store
+
+# Local Netlify folder
+.netlify

@@ -49,7 +49,7 @@ const LoginButton = ({collapsedRecipe}) => {
                     <div className='imgLoading'>
                         <img
                             className='imgLoad'
-                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/6200540_3187910.jpg?v=1705689894510'
+                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/6195512_3157932.jpg?v=1705691405287'
                             alt='img'
                         />
                     </div>
@@ -75,7 +75,7 @@ const LoginButton = ({collapsedRecipe}) => {
                     <div className='imgLoading'>
                         <img
                             className='imgLoad'
-                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/8685794_3968849.jpg?v=1705689907750'
+                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/10174062_8709.jpg?v=1705691405644'
                             alt='img'
                         />
                     </div>
@@ -89,14 +89,14 @@ const LoginButton = ({collapsedRecipe}) => {
                     <div className='imgLoading'>
                         <img
                             className='imgLoad'
-                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/6195512_3157932.jpg?v=1705691405287'
+                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/6200540_3187910.jpg?v=1705689894510'
                             alt='img'
                         />
                     </div>
                     <div className='imgLoading'>
                         <img
                             className='imgLoad'
-                            src='https://cdn.glitch.global/f2e4ba55-b717-4015-a28f-cb2cca8ea632/10174062_8709.jpg?v=1705691405644'
+                            src='https://cdn.glitch.global/c14711ba-e15b-405c-b9bf-66eaec2bf016/11667228_20945066.jpg?v=1706305502724'
                             alt='img'
                         />
                     </div>

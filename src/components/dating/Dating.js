@@ -65,7 +65,7 @@ const Dating = () => {
                 {isAuthenticated ? (
                     <DatingForm collapsed={collapsed} />
                 ) : (
-                    <div className={collapsed ? 'sidebar' : 'collapsed'}>
+                    <div className={collapsed ? 'mr-top' : 'collapsed'}>
                         <LoginButton />
                     </div>
                 )}
@@ -90,7 +90,6 @@ const Dating = () => {
                     ),
                 )}
             </div>
-            {/* <h1 className='headerRandom'>Random Dating Generator</h1> */}
             {randomImage && (
                 <div className='containerImgAndIdea'>
                     <div>

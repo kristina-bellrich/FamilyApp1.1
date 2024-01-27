@@ -14,7 +14,7 @@ function Todo() {
     const [editing1, setEditing1] = useState(false);
     const [todoId, setTodoId] = useState('');
 
-    
+
     //send state in component with API(and update it there)
     useEffect(() => {
         getAllTodo(setTodo);
@@ -58,7 +58,6 @@ function Todo() {
                 console.error('Error:', error);
             }
         };
-
         handleAuthentication();
     }, [isAuthenticated]);
 

@@ -32,7 +32,7 @@ export const OwnRecipe = ({
         <div className='marginLeft'>
             <div>
                 <h1 className='headerRecipesContainer'>
-                    YOUR FAVORITE FAMYLY RECIPES!!!
+                    YOUR FAVORITE FAMYLY RECIPES
                 </h1>
                 {myRecipe.length > 0 ? (
                     <div className='recipeContainer'>

@@ -38,7 +38,9 @@ function Recipies() {
     const handleToggleSidebar = (value) => {
         setToggled(value);
     };
-
+const clickedPage=()=>{
+    setCollapsed(true);
+}
     return (
         <div className='allRecipeContainer'>
             <Sidebar
@@ -98,6 +100,7 @@ function Recipies() {
             </Sidebar>
 
             {isAuthenticated ? (
+                <div onClick={clickedPage}>
                 <PaginatedItems
                     itemsPerPage={3}
                     title={title}
@@ -108,9 +111,9 @@ function Recipies() {
                     setImage={setImage}
                     setMyRecipe={setMyRecipe}
                     myRecipe={myRecipe}
-                />
+                /></div>
             ) : (
-                <div className='mr-left'>
+                <div  onClick={clickedPage} className='mr-left'>
                     <LoginButton collapsedRecipe={collapsed} />
                 </div>
             )}
