@@ -2,9 +2,13 @@ import {useEffect, useState} from 'react';
 import LoaderForLanding from '../loaders/LoaderForLanding';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
+import ReactPlayer from 'react-player';
+
 
 function Home() {
     const [loaded, setLoaded] = useState(true);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
     useEffect(() => {
         setLoaded(false);
         AOS.init({
@@ -12,6 +16,15 @@ function Home() {
             once: true,
         });
     }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+          setWindowWidth(window.innerWidth);
+        }; window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
     return (
         <div className='landingContainer'>
@@ -34,9 +47,7 @@ function Home() {
                 </section>
             )}
 
-            <h2 className='header1'>
-                YOUR FAMILY HELPER
-            </h2>
+            <h2 className='header1'>YOUR FAMILY HELPER</h2>
 
             <section className='features'>
                 <div
@@ -86,14 +97,10 @@ function Home() {
             </section>
 
             <div className='useContainer'>
-                <h2 className='header1'>
-                    HOW YOU CAN USE IT
-                </h2>
+                <h2 className='header1'>HOW YOU CAN USE IT</h2>
 
                 <section className='features'>
-                    <h3
-                        className='block-title feature1'
-                    >
+                    <h3 className='block-title feature1'>
                         Log into your account
                     </h3>
                     <img
@@ -101,12 +108,19 @@ function Home() {
                         alt='Arrow Icon'
                         className='feature1 arrow-icon'
                     />
-                    <h3
-                        className='block-title  feature1'
-                    >
-                        Save your ideas
-                    </h3>
+                    <h3 className='block-title  feature1'>Save your ideas</h3>
                 </section>
+            </div>
+            <div>
+            {windowWidth >= 700 ?
+                <ReactPlayer  style={{position:'relative'}} width='100%' height='100%'
+                    controls
+                    url='https://cdn.glitch.global/c14711ba-e15b-405c-b9bf-66eaec2bf016/IMG_2558.MOV?v=1706367044708'
+                /> :
+                <ReactPlayer  style={{position:'relative'}} width='100%' height='100%'
+                controls
+                url='https://cdn.glitch.me/c14711ba-e15b-405c-b9bf-66eaec2bf016/IMG_2556.MOV?v=1706365097856'
+            /> }
             </div>
         </div>
     );
