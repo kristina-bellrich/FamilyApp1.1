@@ -5,7 +5,6 @@ import expensesReducer from './budgetSlice'
 
 export const store = configureStore({
     reducer: {
-        todos: todosReducer,
-        expenses: expensesReducer,
+        todos: todosReducer
     },
 });

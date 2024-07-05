@@ -8,7 +8,6 @@ import {
 import {EachBudget} from './EachBudget';
 import Swal from 'sweetalert2';
 import {useAuth0} from '@auth0/auth0-react';
-import {Loading} from '../loaders/Loading';
 import LoginButton from '../auth/LoginButton';
 
 const Budget = () => {
