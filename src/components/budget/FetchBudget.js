@@ -1,69 +1,35 @@
+
 import axios from 'axios';
 
-const getAllExpense = (setMyExpenses) => {
-    axios.get('https://expense-tracker-yuh3.onrender.com/').then(({data}) => {
-        setMyExpenses(data);
+const API_URL = 'https://expense-tracker-yuh3.onrender.com/';
+
+const getAllExpense = async () => {
+    const response = await axios.get(API_URL);
+    return response.data;
+};
+
+const addExpenses = async (selectedDate, selectedType, amount) => {
+    const response = await axios.post(`${API_URL}/save`, {
+        selectedDate,
+        selectedType,
+        amount,
     });
+    return response.data;
 };
 
-const addExpenses = (
-    setExpenses,
-    selectedDate,
-    setSelectedDate,
-    selectedType,
-    setSelectedType,
-    amount,
-    setAmount,
-) => {
-    axios
-        .post(`https://expense-tracker-yuh3.onrender.com/save`, {
-            selectedDate,
-            selectedType,
-            amount,
-        })
-        .then(() => {
-            setSelectedDate('');
-            setSelectedType('');
-            setAmount('');
-            getAllExpense(setExpenses);
-        });
+const editExpenses = async (idExpenses, selectedDate, selectedType, amount) => {
+    const response = await axios.post(`${API_URL}/edit`, {
+        _id: idExpenses,
+        selectedDate,
+        selectedType,
+        amount,
+    });
+    return response.data;
 };
 
-const deleteExpenses = (_id, setExpenses) => {
-    axios
-        .post(`https://expense-tracker-yuh3.onrender.com/deleted`, {_id})
-        .then(() => {
-            getAllExpense(setExpenses);
-        });
+const deleteExpenses = async (idExpenses) => {
+    const response = await axios.post(`${API_URL}/delete`, {_id: idExpenses});
+    return response.data;
 };
 
-const editExpenses = (
-    setExpenses,
-    idExpenses,
-    setIdExpenses,
-    selectedDate,
-    setSelectedDate,
-    selectedType,
-    setSelectedType,
-    amount,
-    setAmount,
-    setEditing1,
-) => {
-    axios
-        .post(`https://expense-tracker-yuh3.onrender.com/edit`, {
-            _id: idExpenses,
-            selectedDate,
-            selectedType,
-            amount,
-        })
-        .then(() => {
-            setIdExpenses('');
-            setSelectedType('');
-            setAmount('');
-            setSelectedDate();
-            getAllExpense(setExpenses);
-            setEditing1(false);
-        });
-};
-
-export {getAllExpense, addExpenses, deleteExpenses, editExpenses};
+export {getAllExpense, addExpenses, editExpenses, deleteExpenses};

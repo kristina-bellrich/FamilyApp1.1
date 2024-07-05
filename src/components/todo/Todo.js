@@ -1,66 +1,71 @@
-import {useEffect, useState} from 'react';
-import {TodoList} from './TodoList';
-import {addTodo, deleteTodo, editTodo, getAllTodo} from './FetchTodo';
-import {Loading} from '../loaders/Loading';
-import {useAuth0} from '@auth0/auth0-react';
+import { useEffect, useState } from 'react';
+import { TodoList } from './TodoList';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Loading } from '../loaders/Loading';
+import { useAuth0 } from '@auth0/auth0-react';
 import LoginButton from '../auth/LoginButton';
 import Swal from 'sweetalert2';
+import { addNewTodo, fetchTodos, removeTodo, updateTodo } from '../store/todoSlice';
 
 function Todo() {
-    const {isAuthenticated} = useAuth0();
-    //create state with data from API
-    const [myTodo, setTodo] = useState([]);
+    const { isAuthenticated } = useAuth0();
+    const dispatch = useDispatch();
+    const todos = useSelector((state) => state.todos.todos);
+    const todoStatus = useSelector((state) => state.todos.status);
+    const error = useSelector((state) => state.todos.error);
+
     const [title, setTitle] = useState('');
     const [editing1, setEditing1] = useState(false);
     const [todoId, setTodoId] = useState('');
 
-
-    //send state in component with API(and update it there)
     useEffect(() => {
-        getAllTodo(setTodo);
-        // setLoading(false);
-    }, []);
+        if (todoStatus === 'idle') {
+            dispatch(fetchTodos());
+        }
+    }, [todoStatus, dispatch]);
 
-    const updatingInInput = (_id, title) => {
+    const updatingInInput = (id, title) => {
         setEditing1(true);
         setTitle(title);
-        setTodoId(_id);
+        setTodoId(id);
     };
 
-    const addMyTodo = ()=>{
+    const addMyTodo = () => {
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: `New task has been added`,
+            title: 'New task has been added',
             showConfirmButton: false,
             timer: 1500,
         });
-        addTodo(title, setTitle, setTodo)
-    }
+        dispatch(addNewTodo(title));
+        setTitle('');
+    };
 
-    const editMyTodo = ()=>{
+    const editMyTodo = () => {
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: `The task has been updated`,
+            title: 'The task has been updated',
             showConfirmButton: false,
             timer: 1500,
         });
-        editTodo(todoId,title,setTodo,setTitle,setEditing1,
-        )
-    }
-    useEffect(() => {
-        const handleAuthentication = async () => {
-            try {
-                if (isAuthenticated) {
-                }
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        };
-        handleAuthentication();
-    }, [isAuthenticated]);
+        dispatch(updateTodo({ id: todoId, title }));
+        setTitle('');
+        setEditing1(false);
+    };
 
+    const deleteTodo = (id) => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'The task has been deleted',
+            showConfirmButton: false,
+            timer: 1500,
+        });
+        dispatch(removeTodo(id));
+    };
 
     return (
         <div className='todoList'>
@@ -77,40 +82,34 @@ function Todo() {
                     value={title}
                     onChange={(e) => setTitle(e.target.value.toUpperCase())}
                 />
-
                 <button
                     className='addDate'
                     disabled={!title}
-                    onClick={
-                        editing1
-                            ? () =>editMyTodo()
-
-                            : ()=>addMyTodo()
-                    }
+                    onClick={editing1 ? editMyTodo : addMyTodo}
                 >
                     {editing1 ? 'EDIT' : 'ADD'}
                 </button>
             </div>
             {isAuthenticated ? (
                 <div className='contWithAllEl'>
-                    {myTodo.length > 0 ? (
-                        myTodo.map((todo) => (
-                            <TodoList
-                                todo={todo}
-                                text={todo.title}
-                                _id={todo._id}
-                                setTodo={setTodo}
-                                deleteTodo={() => deleteTodo(todo._id, setTodo)}
-                                updatingInInput={() =>updatingInInput(todo._id, todo.title)
-                                }
-                                key={todo._id}
-                            />
-                        ))
-                    ) : (
+                    {todoStatus === 'loading' ? (
                         <div className='extraTextLoading'>
                             <p>Consider shared plans and</p>
                             <Loading />
                         </div>
+                    ) : todoStatus === 'succeeded' ? (
+                        todos.map((todo) => (
+                            <TodoList
+                                todo={todo}
+                                text={todo.title}
+                                _id={todo._id}
+                                updatingInInput={() => updatingInInput(todo._id, todo.title)}
+                                deleteTodo={() => deleteTodo(todo._id)}
+                                key={todo._id}
+                            />
+                        ))
+                    ) : (
+                        <div>{error}</div>
                     )}
                 </div>
             ) : (

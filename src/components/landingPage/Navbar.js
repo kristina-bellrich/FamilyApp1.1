@@ -66,7 +66,7 @@ const AppNavbar = () => {
                         >
                             Todo
                         </Nav.Link>
-                        
+
                     </NavDropdown>
 
                     <Nav.Link

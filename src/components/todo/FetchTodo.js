@@ -1,36 +1,29 @@
 import axios from 'axios';
 
-//get all todo from API and display it
-const getAllTodo = (setTodo) => {
-    axios.get('https://todobackend-ekl7.onrender.com').then(({data}) => {
-    setTodo(data);
-    });
+const API_URL = 'https://todobackend-ekl7.onrender.com';
+
+// get all todos from API
+const getAllTodo = async () => {
+    const response = await axios.get(API_URL);
+    return response.data;
 };
 
-//say to add new Todo and display what was before
-const addTodo = (title, setTitle, setTodo) => {
-    axios.post(`https://todobackend-ekl7.onrender.com/saveTodo`, {title}).then(() => {
-        //after push ADD empty inputs and update all list
-        setTitle('');
-        getAllTodo(setTodo);
-    });
+// add a new todo
+const addTodo = async (title) => {
+    const response = await axios.post(`${API_URL}/saveTodo`, { title });
+    return response.data;
 };
 
-const editTodo = (todoId, title, setTodo, setTitle, setEditing1) => {
-    axios
-        .post(`https://todobackend-ekl7.onrender.com/editTodo`, {_id: todoId, title})
-        .then(() => {
-            setTitle('');
-            setEditing1(false);
-            getAllTodo(setTodo);
-        });
+// edit an existing todo
+const editTodo = async (todoId, title) => {
+    const response = await axios.post(`${API_URL}/editTodo`, { _id: todoId, title });
+    return response.data;
 };
 
-
-const deleteTodo = (_id, setTodo) => {
-    axios.post(`https://todobackend-ekl7.onrender.com/deleteTodo`, {_id}).then(() => {
-        getAllTodo(setTodo);
-    });
+// delete a todo
+const deleteTodo = async (id) => {
+    const response = await axios.post(`${API_URL}/deleteTodo`, { _id: id });
+    return response.data;
 };
 
-export {getAllTodo, addTodo, editTodo, deleteTodo};
+export { getAllTodo, addTodo, editTodo, deleteTodo };
